@@ -73,7 +73,7 @@ public class CueControllerScript : MonoBehaviour
         cueGraphics.transform.localPosition = Vector3.zero;
 
         var strikeDirection = -transform.right;
-        cueBallRigidbody.AddForce(strikeDirection * maxStrikeForce, ForceMode.Impulse);
+        cueBallRigidbody.AddForce(strikeDirection * currentStrikeForce, ForceMode.Impulse);
 
         StartCoroutine(CheckIfBallStoppedRoutine());
     }
