@@ -9,20 +9,25 @@ public class PocketController : MonoBehaviour
     {
         if (other.GetComponent<Rigidbody>() != null)
         {
+            UIController.Instance.AddScore(1);
+
             StartCoroutine(SinkBallRoutine(other.gameObject));
         }
     }
 
     private IEnumerator SinkBallRoutine(GameObject ball)
     {
-        if (ball.GetComponent<Rigidbody>() != null)
+        Collider ballCollider = ball.GetComponent<Collider>();
+        Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
+
+        if (ballCollider != null)
         {
-            ball.GetComponent<Collider>().enabled = false;
+           ballCollider.enabled = false;
         }
 
-        if (ball.GetComponent<Rigidbody>() != null)
+        if (ballRigidbody != null)
         {
-            Destroy(ball.GetComponent<Rigidbody>());
+            Destroy(ballRigidbody);
         }
         
         
